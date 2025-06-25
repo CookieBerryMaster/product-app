@@ -1,14 +1,14 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-between items-center">
-            <h2 class="font-bold text-3xl text-gray-900 dark:text-white tracking-tight">
+            <h2 class="font-bold text-3xl text-pink-700 tracking-tight">
                 {{ __('Edit Category') }}
             </h2>
 
             <a href="{{ route('categories.index') }}"
-               class="inline-flex items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md
-                      font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700
-                      focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 transition ease-in-out duration-150">
+               class="inline-flex items-center px-4 py-2 bg-pink-400 border border-transparent rounded-md
+                      font-semibold text-xs text-white uppercase tracking-widest hover:bg-pink-500
+                      focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 transition ease-in-out duration-150">
                 {{ __('Back to list') }}
             </a>
         </div>
@@ -27,35 +27,33 @@
                 </div>
             @endif
 
-            <form action="{{ route('categories.update', $category) }}" method="POST" class="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+            <form action="{{ route('categories.update', $category) }}" method="POST"
+                  class="bg-white shadow rounded-lg p-6">
                 @csrf
                 @method('PUT')
 
                 <div class="mb-4">
-                    <label for="name" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                    <label for="name" class="block text-pink-700 font-semibold mb-2">
                         {{ __('Name') }}
                         <span class="text-red-500">*</span>
                     </label>
                     <input type="text" name="name" id="name" required
                            value="{{ old('name', $category->name) }}"
-                           class="w-full rounded border-gray-300 dark:border-gray-600 dark:bg-gray-700 
-                                  dark:text-white focus:border-indigo-500 focus:ring-indigo-500 shadow-sm" />
+                           class="w-full rounded border-pink-300 focus:border-pink-500 focus:ring-pink-500 text-pink-800 shadow-sm" />
                 </div>
 
                 <div class="mb-4">
-                    <label for="description" class="block text-gray-700 dark:text-gray-300 font-semibold mb-2">
+                    <label for="description" class="block text-pink-700 font-semibold mb-2">
                         {{ __('Description') }}
                     </label>
                     <textarea name="description" id="description" rows="4"
-                              class="w-full rounded border-gray-300 dark:border-gray-600 dark:bg-gray-700 
-                                     dark:text-white focus:border-indigo-500 focus:ring-indigo-500 shadow-sm">{{ old('description', $category->description) }}</textarea>
+                              class="w-full rounded border-pink-300 focus:border-pink-500 focus:ring-pink-500 text-pink-800 shadow-sm">{{ old('description', $category->description) }}</textarea>
                 </div>
 
                 <div class="flex justify-end">
-                    <button type="submit"
-                            class="inline-flex items-center px-6 py-2 bg-indigo-600 border border-transparent rounded-md
-                                   font-semibold text-white uppercase tracking-widest hover:bg-indigo-700
-                                   focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                    <button type="submit" class="inline-flex items-center px-6 py-2 bg-pink-300 border border-transparent rounded-md
+               font-semibold text-white uppercase tracking-widest hover:bg-pink-400
+               focus:outline-none focus:ring-2 focus:ring-pink-300 focus:ring-offset-2 transition ease-in-out duration-150">
                         {{ __('Update') }}
                     </button>
                 </div>
